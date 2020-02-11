@@ -23,7 +23,8 @@
 function findMovie(arrMovie) {
 
     let cache = [];
-
+    
+    /* naive solution ... pftttt !@#!#ESADF */
     for (let i in arrMovie) {
       let obj = {};
       obj.Date = arrMovie[i][1];
@@ -32,13 +33,12 @@ function findMovie(arrMovie) {
       cache.push(obj)
     }
 
-    return arrMovie.reduce((catalogue,movies,a)=> {
-        let movie = {}, date = arrMovie[a][1].toString().match(/\w+/g),
-            releasedDate = `${date[0]} ${date[1]}`, releasedYear = date[2];
+    return arrMovie.reduce((catalogue,_,a)=> {
+        let date = arrMovie[a][1].match(/\w+/g), releasedYear = date[2];
 
-        catalogue[releasedYear] = catalogue[+releasedYear] || 
-            cache.filter(el=> el.Date.match(/\w+/g)[2]==releasedYear);
-
+        catalogue[releasedYear] = catalogue[releasedYear] || 
+            cache.filter(el=> el.Date.match(/\w+/g)[2]==releasedYear)
+        
         return catalogue;
         
     },{})
@@ -83,7 +83,7 @@ var movie2 = [
   ["Coco", "22 November 2017", "Animation"],
   ["Your Name", "7 April 2017", "Animation"]
 ]
-// console.log(findMovie(movie2))
+console.log(findMovie(movie2))
 // {
 //   '2017': [
 //     { date: '22 November', title: 'Coco', genre: 'Animation' },
