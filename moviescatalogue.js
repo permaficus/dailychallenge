@@ -33,8 +33,8 @@ function findMovie(arrMovie) {
       cache.push(obj)
     }
 
-    return arrMovie.reduce((catalogue,_,a)=> {
-        let date = arrMovie[a][1].match(/\w+/g), releasedYear = date[2];
+    return arrMovie.reduce((catalogue,movies)=> {
+        let releasedYear = movies[1].match(/\w+/g)[2];
 
         catalogue[releasedYear] = catalogue[releasedYear] || 
             cache.filter(el=> el.Date.match(/\w+/g)[2]==releasedYear)
