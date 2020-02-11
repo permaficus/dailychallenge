@@ -78,7 +78,7 @@ var movie2 = [
   ["Parasite", "24 June 2019", "Drama"],
   ["Into the Spider-verse", "14 December 2018", "Animation"],
   ["Avengers: Infinity War", "27 April 2018", "Action"],
-  ["Avengers: Endgame", "26 April 2019 ", "Action"],
+  ["Avengers: Endgame", "26 April 2019", "Action"],
   ["Coco", "22 November 2017", "Animation"],
   ["Your Name", "7 April 2017", "Animation"]
 ]
