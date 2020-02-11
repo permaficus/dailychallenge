@@ -1,0 +1,14 @@
+leftRotation = (a,b) => {
+
+    let cache = [], pop_ = a[a.length-1], idx = 0;
+    for (let i=b;i<a.length+b;i++) {
+        cache.push((i > pop_) ? idx++:a[i])
+    }
+
+    return cache;
+
+}
+// test case
+console.log(leftRotation([0, 1, 2, 3, 4, 5], 1)) // [ 1, 2, 3, 4, 5, 0]
+console.log(leftRotation([0, 1, 2, 3, 4, 5], 2)) // [ 2, 3, 4, 5, 0, 1 ]
+console.log(leftRotation([0, 1, 2, 3, 4, 5], 3)) // [ 3, 4, 5, 0, 1, 2 ]
