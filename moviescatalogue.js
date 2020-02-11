@@ -27,22 +27,23 @@ function findMovie(arrMovie) {
     /* naive solution ... pftttt !@#!#ESADF */
     for (let i in arrMovie) {
       let obj = {};
-      obj.Date = arrMovie[i][1];
+      obj.Date = arrMovie[i][1].substr(0,arrMovie[i][1].lastIndexOf(' '));
+      obj.rel = arrMovie[i][1].match(/\w+/g)[2]
       obj.Title = arrMovie[i][0];
       obj.Genre = arrMovie[i][2]
       cache.push(obj)
     }
 
     return arrMovie.reduce((catalogue,movies)=> {
-        let releasedYear = movies[1].match(/\w+/g)[2];
+        let releasedYear = movies[1].match(/\w+/g)[2], list = cache.filter(el=> el.rel == releasedYear);
 
-        catalogue[releasedYear] = catalogue[releasedYear] || 
-            cache.filter(el=> el.Date.match(/\w+/g)[2]==releasedYear)
-        
+        catalogue[releasedYear] = catalogue[releasedYear] || list;
+        list.filter(el=>el.rel==releasedYear).forEach(al=> delete al.rel);
+
         return catalogue;
         
     },{})
-
+    
 }
 
 var movie1 = [
