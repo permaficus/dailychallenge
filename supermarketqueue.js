@@ -4,8 +4,13 @@ queueTimes = (queue,n) => {
 
     let time = 0, self = Array(n).fill(0), cache,queue_ , closed=false;
 
-    while (closed || queue.length!==0) { cache = self.indexOf(0);
-        while (cache >= 0) {queue_ = queue.shift(); self[cache] = queue_; cache = self.indexOf(0);}
+    while (closed || queue.length!==0) { 
+        cache = self.indexOf(0);
+        while (cache >= 0) {
+            queue_ = queue.shift(); 
+            self[cache] = queue_; 
+            cache = self.indexOf(0);
+        }
       
       time ++;
       self.forEach((a, b) => {self[b] -= (a>0) ? 1:0});
