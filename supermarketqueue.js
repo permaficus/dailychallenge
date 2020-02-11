@@ -1,4 +1,4 @@
-/* From The Supermarket Queue on Codewards - https://www.codewars.com/kata/57b06f90e298a7b53d000a86 */
+/* From The Supermarket Queue on Codewars - https://www.codewars.com/kata/57b06f90e298a7b53d000a86 */
 
 queueTimes = (queue,n) => {
 
