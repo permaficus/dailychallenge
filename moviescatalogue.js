@@ -43,10 +43,8 @@ function findMovie(arrMovie) {
         
     },{})
 
-    // return moviesCatalogue;
-
-
 }
+
 var movie1 = [
   ["Suicide Squad", "3 May 2016", "Action"],
   ["Interstellar", "6 June 2018", "Sci-Fi"],
