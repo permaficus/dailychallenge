@@ -4,9 +4,9 @@ make = (n,char_) => {
 
     char_ = char_ || ''
     let dict = '.abcdefghijklmnopqrstuvqxyz', char ='';
-    char += `${dict[n]}`;
-    n--;
+    char += dict[n];
     char_ += char;
+    n--;
     return (n == 0) ? `${char}-${char_.substr(0,char_.length-1).split('').reverse().join('-')}`
             :`${char}-${make(n,char_)}`
 
