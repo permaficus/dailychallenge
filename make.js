@@ -1,5 +1,7 @@
 make = (n,char_) => {
 
+    // Credit to @padulkemid
+    
     char_ = char_ || ''
     let dict = '.abcdefghijklmnopqrstuvqxyz', char ='';
     char += `${dict[n]}`;
