@@ -14,3 +14,4 @@ make = (n,char_) => {
 
 console.log(make(5))
 console.log(make(10))
+console.log(make(26))
