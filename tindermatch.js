@@ -47,19 +47,17 @@
  *
  */
 function tinderMatch(people) {
-    let [men,women,user] = [[],[],[]];
+    let [men,women,matched] = [[],[],{}];
     
     const isMatch = (wt,we,mt,me) => {
         let match_weigth = 0; // max 2
         for (let m in me) {
-            // console.log(expects[m])
             if (wt.indexOf(me[m]) !== -1) {
                 match_weigth++
                 break;
             }
         }
         for (let t in we) {
-            // console.log(traits[t])
             if (mt.indexOf(we[t]) !== -1) {
                 match_weigth++;
                 break;
@@ -69,36 +67,32 @@ function tinderMatch(people) {
     }
 
     for (let i in people) {
-        let matched = {}
         people[i].gender == 'Men' ? men.push(people[i]): people[i].gender == 'Women' ? women.push(people[i]):'';
         if (people[i].gender == 'Men' || people[i].gender == 'Women'){
             matched[people[i].name] = matched[people[i].name] || {match: []};
-            user.push(matched)
+            Object.assign(matched)
         }
     }
 
-    for (let p in user) {
+    for (let p in Object.keys(matched)) {
         if (people[p].gender == 'Men') {
             for (let w in women) {
                 if (isMatch(women[w].traits,women[w].expectation,people[p].traits,people[p].expectation)) {
-                    user[p][Object.keys(user[p])[0]].match.push(women[w].name)
+                    matched[people[p].name].match.push(women[w].name)
                 }
             }
-            console.log(user[p])
         }
         if (people[p].gender == 'Women') {
             for (let m in men) {
                 if (isMatch(people[p].traits,people[p].expectation,men[m].traits,men[m].expectation)) {
-                    user[p][Object.keys(user[p])[0]].match.push(men[m].name)
+                    matched[people[p].name].match.push(men[m].name)
                 }
             }
-            console.log(user[p])
+
         }
     }
 
-
-    // return user;
-   return '-----FINISH-----' 
+   return matched; 
 
 }   
 var people = [
